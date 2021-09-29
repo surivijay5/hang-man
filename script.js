@@ -1,3 +1,5 @@
+import { hpNamesData } from "./hp-names.js"
+
 const wordEl = document.querySelector('#word')
 const wrongLettersEl = document.querySelector('#wrong-letters')
 const playAgainBtn = document.querySelector('.play-button')
@@ -5,7 +7,9 @@ const popup = document.querySelector('#popup-container')
 const notification = document.querySelector('#notification-container')
 const finalMessage = document.querySelector('#final-message')
 
-const wordList = ["programming","centaur","unicorn"]
+const wordList = [...hpNamesData]
+//Use from API if need be ; Data Source could be anything
+// const wordList = await fetchNamesFromAPI()
 
 const selectedWord = wordList[Math.floor(Math.random() * wordList.length)]
 const selectedWordSet = new Set(selectedWord.split(""))
@@ -46,6 +50,19 @@ function showPopUp(msg){
     popup.style.display = 'flex'
     finalMessage.innerText = msg
 }
+
+// async function fetchNamesFromAPI(){
+//     const headers = {
+//         "method": "GET",
+//         "headers": {
+//             "x-rapidapi-host": "movies-tvshows-data-imdb.p.rapidapi.com",
+//             "x-rapidapi-key": "031ad8c8c5msh0f6e3ccdf65c137p1233ecjsnf3f808a1958f"
+//         }
+//     }
+//     const response = await fetch("https://movies-tvshows-data-imdb.p.rapidapi.com/?type=get-popular-movies&page=1&year=2020", headers )
+//     const data = await response.json()
+//     return data
+// }
 
 function isLetter(keyCode){
     var charCode = keyCode;
