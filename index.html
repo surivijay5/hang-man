@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hang-Man</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+    </style>
+</head>
+<body>
+    <h1>Hang Man</h1>
+    <p> Find the hidden word - Enter a letter</p>
+    <div class="game-container">
+        <div class="figure-container">
+            <svg height="250" width="200" class="figure">
+                <!-- main-rods -->
+                <line x1='60' y1='20' x2="140" y2="20" ></line>
+                <line x1='60' y1='20' x2="60" y2="200" ></line>
+                <line x1='40' y1='200' x2="80" y2="200" ></line>
+                <!-- hanger -->
+                <line x1='140' y1='20' x2="140" y2="40" class="figure-part"></line>
+                <!-- head -->
+                <circle cx="140" cy="60" r="20" class='figure-part'></circle>
+                <!-- body -->
+                <line x1='140' y1='80' x2="140" y2="120" class='figure-part'></line>
+                <!-- arms -->
+                <line x1='140' y1='80' x2="120" y2="100" class='figure-part' ></line>
+                <line x1='140' y1='80' x2="160" y2="100" class='figure-part' ></line>
+                <!-- legs -->
+                <line x1='140' y1='120' x2="120" y2="140" class='figure-part'></line>
+                <line x1='140' y1='120' x2="160" y2="140"class='figure-part' ></line>
+            </svg>
+    
+            <div class="wrong-letters-container">
+                <div>
+                    <p>Wrong</p>
+                  <span id="wrong-letters"></span>
+                </div>
+            </div>  
+        </div>
+
+        <div class="word" id="word">
+        </div>
+    </div>
+
+    <!-- popups -->
+    <div class="popup-container" id="popup-container">
+        <div class="popup">
+            <h2 id=final-message> You have won</h2>
+            <button class="play-button">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification-container" id="notification-container">
+        <p>You have already entered this letter</p>
+    </div>
+</body>
+</html>
